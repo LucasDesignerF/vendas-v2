@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendas V2 - Loja Virtual</title>
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-white">
+  <!-- Navbar -->
+  <nav class="bg-neutral-950 p-4 sticky top-0 z-10 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold">Vendas V2</a>
+      <div class="space-x-4">
+        <a href="products.html" class="hover:text-red-900 transition"><i class="fas fa-store"></i> Produtos</a>
+        <a href="cart.html" class="hover:text-red-900 transition"><i class="fas fa-shopping-cart"></i> Carrinho</a>
+        <a href="orders.html" class="hover:text-red-900 transition"><i class="fas fa-list"></i> Pedidos</a>
+        <a href="customer.html" class="hover:text-red-900 transition"><i class="fas fa-user"></i> Minha Conta</a>
+        <a href="login.html" class="hover:text-red-900 transition"><i class="fas fa-user-shield"></i> Admin</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-neutral-900 py-20 text-center">
+    <div class="container mx-auto">
+      <h1 class="text-5xl font-bold mb-4">Bem-vindo à Vendas V2</h1>
+      <p class="text-xl mb-8">Descubra os melhores produtos com qualidade e estilo.</p>
+      <a href="products.html" class="bg-red-950 hover:bg-red-900 text-white px-6 py-3 rounded inline-flex items-center transition">
+        <i class="fas fa-store mr-2"></i> Explorar Produtos
+      </a>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="container mx-auto py-12">
+    <h2 class="text-3xl font-bold mb-8 text-center">Produtos em Destaque</h2>
+    <div id="featured-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Produtos carregados via JavaScript -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-950 p-4 text-center">
+    <p>© 2025 Vendas V2. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchProducts(1, 3); // Carrega 3 produtos em destaque
+    });
+  </script>
+</body>
+</html>
