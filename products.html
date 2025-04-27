@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtos - Vendas V2</title>
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-black text-white">
+  <!-- Navbar -->
+  <nav class="bg-neutral-950 p-4 sticky top-0 z-10 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold">Vendas V2</a>
+      <div class="space-x-4">
+        <a href="products.html" class="hover:text-red-900 transition"><i class="fas fa-store"></i> Produtos</a>
+        <a href="cart.html" class="hover:text-red-900 transition"><i class="fas fa-shopping-cart"></i> Carrinho</a>
+        <a href="orders.html" class="hover:text-red-900 transition"><i class="fas fa-list"></i> Pedidos</a>
+        <a href="customer.html" class="hover:text-red-900 transition"><i class="fas fa-user"></i> Minha Conta</a>
+        <a href="login.html" class="hover:text-red-900 transition"><i class="fas fa-user-shield"></i> Admin</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container mx-auto py-8">
+    <h1 class="text-4xl font-bold mb-8 text-center">Nossos Produtos</h1>
+    <div class="mb-6 flex flex-col sm:flex-row gap-4">
+      <input id="search" type="text" placeholder="Pesquisar produtos..." class="bg-neutral-900 p-2 rounded flex-1">
+      <select id="category" class="bg-neutral-900 p-2 rounded">
+        <option value="">Todas as Categorias</option>
+        <!-- Categorias carregadas via JavaScript -->
+      </select>
+    </div>
+    <div id="products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Produtos carregados via JavaScript -->
+    </div>
+    <div class="flex justify-center mt-6 space-x-4">
+      <button id="prev-page" class="bg-red-950 hover:bg-red-900 text-white px-4 py-2 rounded"><i class="fas fa-chevron-left"></i></button>
+      <span id="page-info" class="text-lg"></span>
+      <button id="next-page" class="bg-red-950 hover:bg-red-900 text-white px-4 py-2 rounded"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-950 p-4 text-center">
+    <p>© 2025 Vendas V2. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchCategories();
+      fetchProducts();
+      document.getElementById('search').addEventListener('input', () => fetchProducts());
+      document.getElementById('category').addEventListener('change', () => fetchProducts());
+      document.getElementById('prev-page').addEventListener('click', () => changePage(-1));
+      document.getElementById('next-page').addEventListener('click', () => changePage(1));
+    });
+  </script>
+</body>
+</html>
